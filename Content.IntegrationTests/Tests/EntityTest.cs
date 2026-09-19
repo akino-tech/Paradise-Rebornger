@@ -4,7 +4,6 @@ using System.Numerics;
 using System.Text;
 using Content.IntegrationTests.Fixtures;
 using Content.IntegrationTests.Fixtures.Attributes;
-using Content.Shared.CCVar;
 using Robust.Shared;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Configuration;
@@ -232,8 +231,6 @@ namespace Content.IntegrationTests.Tests
         /// crude test to try catch issues like this, and possibly should just be disabled.
         /// </remarks>
         [Test]
-        // Prevent gas tanks from exploding during the lifecycle check and leaving temporary explosion entities.
-        [EnsureCVar(Side.Server, typeof(CCVars), nameof(CCVars.AtmosTickRate), 0f)]
         public async Task SpawnAndDeleteEntityCountTest()
         {
             var pair = Pair;
